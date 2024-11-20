@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: public
+    schema: public
+    tables:
+      - name: country_data
+
+models:
+  - name: stg_country_data
+    description: "Staging model for country data extracted from the source API"
+    columns:
+      - name: country_name
+        description: "Name of the country"
+      - name: official_name
+        description: "Official name of the country"
+      - name: native_name
+        description: "Native name of the country"
+      - name: independence
+        description: "Whether the country is independent"
+      - name: un_member
+        description: "United Nations membership status"
+      - name: start_of_week
+        description: "The day the week starts in the country"
+      - name: currency_code
+        description: "Currency code (e.g., USD, EUR)"
+      - name: currency_name
+        description: "Name of the currency"
+      - name: currency_symbol
+        description: "Symbol of the currency (e.g., $, €)"
+      - name: country_code
+        description: "Country's calling code (e.g., +49 for Germany)"
+      - name: capital
+        description: "Capital city of the country"
+      - name: region
+        description: "Region of the country"
+      - name: sub_region
+        description: "Sub-region of the country"
+      - name: languages
+        description: "Languages spoken in the country"
+      - name: area
+        description: "Geographical area of the country (in square kilometers)"
+      - name: population
+        description: "Population of the country"
+      - name: continents
+        description: "Continent(s) the country belongs to"

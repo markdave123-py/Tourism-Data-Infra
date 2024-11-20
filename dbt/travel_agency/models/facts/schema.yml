@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fact_country
+    description: "Fact table containing metrics related to countries"
+    columns:
+      - name: fact_id
+        description: "Unique identifier for the fact record"
+      - name: country_id
+        description: "Foreign key referencing the country dimension"
+      - name: currency_id
+        description: "Foreign key referencing the currency dimension"
+      - name: geography_id
+        description: "Foreign key referencing the geography dimension"
+      - name: membership_id
+        description: "Foreign key referencing the membership dimension"
+      - name: population
+        description: "The population of the country"
+      - name: area
+        description: "The area of the country in square kilometers"
+      - name: date_loaded
+        description: "Date the data was loaded into the fact table"

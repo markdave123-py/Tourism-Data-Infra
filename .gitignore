@@ -1,0 +1,36 @@
+*.pyc
+*__pycache__/
+
+# Airflow
+airflow/airflow.db
+airflow/airflow-webserver.pid
+airflow/logs/
+airflow/dags/__pycache__/
+
+# Docker
+airflow/logs/
+airflow/airflow.cfg
+
+# Credentials
+.env
+
+# Python
+venv/
+env
+*env
+
+#terraform
+.terraform
+
+venv
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+*backup
+*.tfstate
+
+#dbt
+target/
+dbt_modules/
+logs/
+dbt_config

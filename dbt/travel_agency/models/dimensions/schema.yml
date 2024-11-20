@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: country_dim
+    description: "Dimension table containing basic country details"
+    columns:
+      - name: country_id
+        description: "Unique identifier for the country"
+      - name: country_name
+        description: "The name of the country"
+      - name: official_name
+        description: "The official name of the country"
+      - name: native_name
+        description: "The native name of the country"
+      - name: capital
+        description: "The capital city of the country"
+      - name: region
+        description: "The region the country belongs to"
+      - name: sub_region
+        description: "The sub-region the country belongs to"
+      - name: languages
+        description: "Languages spoken in the country"
+
+  - name: currency_dim
+    description: "Dimension table containing currency details"
+    columns:
+      - name: currency_id
+        description: "Unique identifier for the currency"
+      - name: currency_code
+        description: "Currency code (e.g., USD, EUR)"
+      - name: currency_name
+        description: "The name of the currency"
+      - name: currency_symbol
+        description: "Symbol of the currency"
+
+  - name: geography_dim
+    description: "Dimension table containing geographic details"
+    columns:
+      - name: geography_id
+        description: "Unique identifier for geography"
+      - name: country_name
+        description: "The name of the country"
+      - name: area
+        description: "The area of the country in square kilometers"
+      - name: continents
+        description: "The continent(s) the country belongs to"
+      - name: landlocked
+        description: "Whether the country is landlocked"
+
+  - name: membership_dim
+    description: "Dimension table containing membership details"
+    columns:
+      - name: membership_id
+        description: "Unique identifier for membership"
+      - name: country_name
+        description: "The name of the country"
+      - name: independence
+        description: "Independence status of the country"
+      - name: un_member
+        description: "Is the country a United Nations member?"
+      - name: start_of_week
+        description: "The start day of the week for the country"
