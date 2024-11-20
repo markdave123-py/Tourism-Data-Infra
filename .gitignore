@@ -22,10 +22,11 @@ env
 #terraform
 .terraform
 
+terraform.tfvars
+
 venv
 .terraform
 .terraform.lock.hcl
-terraform.tfstate
 *backup
 *.tfstate
 
