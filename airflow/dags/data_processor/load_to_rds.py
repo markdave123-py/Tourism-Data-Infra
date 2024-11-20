@@ -16,13 +16,13 @@ def transform_operation(**kwargs):
     Validate and push raw data for loading if transformation is not needed.
     """
     try:
-        # Pull raw data from the extract_task
+        # Pull pre_transformed data from the extract_task
         raw_data = kwargs['ti'].xcom_pull(task_ids='extract_task')
         if not raw_data:
             logging.warning("No data received from extract_task.")
             return
 
-        # Push raw data to the next task for loading
+        # Push  data to the next task for loading
         kwargs['ti'].xcom_push(key='transformed_batch', value=raw_data)
         logging.info("Raw data pushed directly for loading.")
     except Exception as e:

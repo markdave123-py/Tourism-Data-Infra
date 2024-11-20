@@ -19,7 +19,6 @@ def extract_from_s3(s3_bucket, s3_key):
         aws_credentials = s3_hook.get_credentials()
         logging.info(f"Using AWS credentials: Access Key: {aws_credentials.access_key}")
 
-        # Initialize boto3 S3 client with credentials
         s3_client = boto3.client(
             "s3",
             aws_access_key_id=aws_credentials.access_key,
@@ -27,7 +26,6 @@ def extract_from_s3(s3_bucket, s3_key):
             region_name=s3_hook._region_name,
         )
 
-        # Log the S3 path being accessed
         logging.info(f"Attempting to access bucket: {s3_bucket}, key: {s3_key}")
 
         # Fetch the object from S3
@@ -43,7 +41,6 @@ def extract_from_s3(s3_bucket, s3_key):
             lambda x: x.tolist() if isinstance(x, np.ndarray) else x
         ).to_dict("records")
 
-        # Log success and return the data
         logging.info(f"Successfully read Parquet file: {s3_key}")
         return result
 

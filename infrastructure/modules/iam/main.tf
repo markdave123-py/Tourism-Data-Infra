@@ -1,28 +1,3 @@
-# resource "aws_iam_user" "user" {
-#   name = var.user_name
-# }
-
-# resource "aws_iam_policy" "policy" {
-#   name        = "project-policy"
-#   description = "Policy for RDS, S3, and SSM access"
-#   policy = jsonencode({
-#     Version = "2012-10-17",
-#     Statement = [
-#       {
-#         Effect = "Allow",
-#         Action = ["s3:*", "ssm:*", "rds:*"],
-#         Resource = "*"
-#       }
-#     ]
-#   })
-# }
-
-# resource "aws_iam_user_policy_attachment" "attach_policy" {
-#   user       = aws_iam_user.user.name
-#   policy_arn = aws_iam_policy.policy.arn
-# }
-
-
 resource "aws_iam_user" "user" {
   name = var.user_name
 }

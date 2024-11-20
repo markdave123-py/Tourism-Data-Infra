@@ -34,7 +34,7 @@ resource "aws_db_instance" "rds_instance" {
   engine               = var.db_engine
   engine_version       = var.db_engine_version
   instance_class       = var.db_instance_class
-  db_name              = var.db_name  # Correct attribute
+  db_name              = var.db_name  
   username             = data.aws_ssm_parameter.db_username.value
   password             = data.aws_ssm_parameter.db_password.value
   publicly_accessible  = var.publicly_accessible

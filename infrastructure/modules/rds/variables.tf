@@ -18,7 +18,7 @@ variable "db_engine_version" {
 variable "db_instance_class" {
   description = "RDS instance type"
   type        = string
-  default     = "db.t3.micro"  # Free-tier eligible
+  default     = "db.t3.micro"  
 }
 
 variable "db_name" {

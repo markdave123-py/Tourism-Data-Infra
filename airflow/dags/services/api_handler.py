@@ -4,51 +4,6 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import logging
 
-
-# def fetch_data_chuck(url, chuck_size=1024*1024):
-
-#     session = requests.Session()
-#     retries = Retry(total=5, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
-#     session.mount("https://", HTTPAdapter(max_retries=retries))
-
-
-#     response = session.get(url, stream=True)
-
-#     response.raise_for_status()
-
-#     buffer = ""
-#     for chunk in response.iter_content(chunk_size=chuck_size):
-#         buffer += chunk.decode('utf-8')
-
-#         try:
-
-#             data = json.loads(buffer)
-#             buffer = ""
-#             yield data
-
-#         except json.JSONDecodeError:
-#             continue
-
-
-# def fetch_data_chuck(url, chuck_size=1024 * 1024):
-#     session = requests.Session()
-#     retries = Retry(total=5, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
-#     session.mount("https://", HTTPAdapter(max_retries=retries))
-
-#     response = session.get(url, stream=True)
-#     response.raise_for_status()
-
-#     buffer = ""
-#     for chunk in response.iter_content(chunk_size=chuck_size):
-#         buffer += chunk.decode("utf-8")
-#         while True:
-#             try:
-#                 data, idx = json.JSONDecoder().raw_decode(buffer)
-#                 buffer = buffer[idx:].strip()
-#                 yield data
-#             except json.JSONDecodeError:
-#                 break
-
 def fetch_data_chuck(url, chuck_size=1024 * 1024):
     """
     Fetch JSON data from a streaming API in chunks and yield parsed objects.
