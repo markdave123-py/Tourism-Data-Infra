@@ -101,9 +101,13 @@ Mile-stone-project/
 │   │   ├── data_processor/
 │   │   │   ├── extract_api_data.py
 │   │   │   ├── load_to_s3.py
-        |    ├── data_processor/
-│   │   │   ├── extract_api_data.py
-│   │   │   ├── load_to_s3.py
+        ├── services/
+│   │   │   ├── api_handler.py
+│   │   │   ├── config.py
+│   │   │   ├── extract_from_s3.py
+│   │   │   ├── rds_loader.py
+│   │   │   ├── s3_uploader.py
+│   │   │   ├── transform_s3.py
 │   │   ├── travel_agency.py
 │   ├── docker-compose.yml
 │   ├── Dockerfile
