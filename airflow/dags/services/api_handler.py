@@ -4,6 +4,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 import logging
 
+
 def fetch_data_chuck(url, chuck_size=1024 * 1024):
     """
     Fetch JSON data from a streaming API in chunks and yield parsed objects.
@@ -16,7 +17,8 @@ def fetch_data_chuck(url, chuck_size=1024 * 1024):
         list: Parsed JSON objects from the response.
     """
     session = requests.Session()
-    retries = Retry(total=5, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
+    retries = Retry(total=5, backoff_factor=1,
+            status_forcelist=[500, 502, 503, 504])
     session.mount("https://", HTTPAdapter(max_retries=retries))
 
     response = session.get(url, stream=True)
