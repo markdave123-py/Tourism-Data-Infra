@@ -21,7 +21,7 @@ This project automates the extraction, transformation, and loading (ETL) of data
 ---
 
 ## Architecture
-![Architecture Diagram](architecture-diagram-placeholder.png)
+![Architecture Diagram](arctitectural-diagram.png)
 
 ### Components
 - **Data Ingestion**: Extract raw data from APIs and upload it to S3.
@@ -101,7 +101,7 @@ Mile-stone-project/
 │   │   ├── data_processor/
 │   │   │   ├── extract_api_data.py
 │   │   │   ├── load_to_s3.py
-        ├── services/
+│   │   ├── services/
 │   │   │   ├── api_handler.py
 │   │   │   ├── config.py
 │   │   │   ├── extract_from_s3.py
