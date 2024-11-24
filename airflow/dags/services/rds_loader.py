@@ -1,6 +1,7 @@
 from airflow.providers.postgres.hooks.postgres import PostgresHook
 import logging
 
+
 def rds_loader(data_batch):
     try:
         # Initialize database connection
@@ -24,10 +25,12 @@ def rds_loader(data_batch):
         """
 
         # Execute batch insert
-        logging.info(f"Attempting to insert {len(data_batch)} rows into the database.")
+        logging.info(
+            f"Attempting to insert {len(data_batch)} rows into the database.")
         cursor.executemany(insert_query, data_batch)
         conn.commit()
-        logging.info(f"Successfully loaded {len(data_batch)} rows into the database.")
+        logging.info(
+            f"Successfully loaded {len(data_batch)} rows into the database.")
     except Exception as e:
         logging.error(f"Error loading data to RDS: {e}")
         raise

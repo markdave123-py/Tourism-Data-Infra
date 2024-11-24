@@ -10,4 +10,5 @@ def get_config(variable_name, default_value=None):
     except KeyError:
         if default_value is not None:
             return default_value
-        raise KeyError(f"Airflow Variable '{variable_name}' is not set and no default value was provided.")
+        raise KeyError(
+            f"Airflow Variable '{variable_name}' is not set and no default value was provided.")

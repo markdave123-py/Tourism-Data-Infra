@@ -1,10 +1,10 @@
-import s3fs
 import pyarrow.parquet as pq
 from airflow.providers.amazon.aws.hooks.base_aws import AwsBaseHook
 import logging
 import boto3
 from io import BytesIO
 import numpy as np
+
 
 def extract_from_s3(s3_bucket, s3_key):
     """
@@ -16,7 +16,8 @@ def extract_from_s3(s3_bucket, s3_key):
 
         # Retrieve AWS credentials from Airflow connection
         aws_credentials = s3_hook.get_credentials()
-        logging.info(f"Using AWS credentials: Access Key: {aws_credentials.access_key}")
+        logging.info(
+            f"Using AWS credentials: Access Key: {aws_credentials.access_key}")
 
         s3_client = boto3.client(
             "s3",
@@ -25,7 +26,8 @@ def extract_from_s3(s3_bucket, s3_key):
             region_name=s3_hook._region_name,
         )
 
-        logging.info(f"Attempting to access bucket: {s3_bucket}, key: {s3_key}")
+        logging.info(
+            f"Attempting to access bucket: {s3_bucket}, key: {s3_key}")
 
         # Fetch the object from S3
         response = s3_client.get_object(Bucket=s3_bucket, Key=s3_key)

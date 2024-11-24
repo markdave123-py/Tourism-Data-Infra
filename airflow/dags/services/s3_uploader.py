@@ -7,7 +7,6 @@ from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 
 def upload_to_s3(data, bucket_name, key):
 
-
     s3_hook = S3Hook(aws_conn_id="aws_default")
 
     s3 = s3fs.S3FileSystem(client_kwargs={
@@ -25,4 +24,3 @@ def upload_to_s3(data, bucket_name, key):
     with s3.open(s3_path, "wb") as f:
 
         pq.write_table(table, f)
-

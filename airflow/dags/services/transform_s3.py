@@ -1,5 +1,6 @@
 import logging
 
+
 def transform_s3_data(data):
     """
     Transform the nested JSON data into a flat format with required fields.
@@ -16,10 +17,16 @@ def transform_s3_data(data):
             country_name = row.get("name", {}).get("common", "")
             official_name = row.get("name", {}).get("official", "")
             native_name = (
-                list(row.get("name", {}).get("nativeName", {}).values())[0].get("common", "")
-                if row.get("name", {}).get("nativeName")
-                else ""
-            )
+                list(
+                    row.get(
+                        "name",
+                        {}).get(
+                        "nativeName",
+                        {}).values())[0].get(
+                    "common",
+                    "") if row.get(
+                        "name",
+                    {}).get("nativeName") else "")
             independence = row.get("independent", None)
             un_member = row.get("unMember", None)
             start_of_week = row.get("startOfWeek", "")

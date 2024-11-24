@@ -18,7 +18,7 @@ def fetch_data_chuck(url, chuck_size=1024 * 1024):
     """
     session = requests.Session()
     retries = Retry(total=5, backoff_factor=1,
-            status_forcelist=[500, 502, 503, 504])
+                    status_forcelist=[500, 502, 503, 504])
     session.mount("https://", HTTPAdapter(max_retries=retries))
 
     response = session.get(url, stream=True)
@@ -43,4 +43,5 @@ def fetch_data_chuck(url, chuck_size=1024 * 1024):
             data = json.loads(buffer)
             yield data
         except json.JSONDecodeError:
-            logging.error("Incomplete or malformed JSON data received in the last chunk.")
+            logging.error(
+                "Incomplete or malformed JSON data received in the last chunk.")
