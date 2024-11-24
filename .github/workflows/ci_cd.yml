@@ -48,10 +48,10 @@ jobs:
 
       - name: Build Docker Image with Version Tag
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/data-processor:${{ env.tag }} .
-          docker tag ${{ secrets.DOCKER_USERNAME }}/data-processor:${{ env.tag }} ${{ secrets.DOCKER_USERNAME }}/data-processor:latest
+          docker build -t ${{ secrets.DOCKER_NAME }}/data-processor:${{ env.tag }} .
+          docker tag ${{ secrets.DOCKER_NAME }}/data-processor:${{ env.tag }} ${{ secrets.DOCKER_NAME }}/data-processor:latest
 
       - name: Push Docker Image to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/data-processor:${{ env.tag }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/data-processor:latest
+          docker push ${{ secrets.DOCKER_NAME }}/data-processor:${{ env.tag }}
+          docker push ${{ secrets.DOCKER_NAME }}/data-processor:latest
