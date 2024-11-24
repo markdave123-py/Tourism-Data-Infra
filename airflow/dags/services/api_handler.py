@@ -44,4 +44,4 @@ def fetch_data_chuck(url, chuck_size=1024 * 1024):
             yield data
         except json.JSONDecodeError:
             logging.error(
-                "Incomplete or malformed JSON data received in the last chunk.")
+                "Incomplete or malformed JSON data received in last chunk")

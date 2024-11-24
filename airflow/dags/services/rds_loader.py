@@ -17,9 +17,12 @@ def rds_loader(data_batch):
             country_code, capital, region, sub_region, languages, area,
             population, continents
         ) VALUES (
-            %(country_name)s, %(official_name)s, %(native_name)s, %(independence)s, %(un_member)s,
-            %(start_of_week)s, %(currency_code)s, %(currency_name)s, %(currency_symbol)s,
-            %(country_code)s, %(capital)s, %(region)s, %(sub_region)s, %(languages)s, %(area)s,
+            %(country_name)s, %(official_name)s, %(native_name)s,
+            %(independence)s, %(un_member)s,
+            %(start_of_week)s, %(currency_code)s, %(currency_name)s,
+            %(currency_symbol)s,
+            %(country_code)s, %(capital)s, %(region)s,
+            %(sub_region)s, %(languages)s, %(area)s,
             %(population)s, %(continents)s
         ) ON CONFLICT (country_name, date_loaded) DO NOTHING;
         """
