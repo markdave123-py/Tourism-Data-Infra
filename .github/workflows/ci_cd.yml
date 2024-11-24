@@ -9,7 +9,6 @@ on:
       - main
 
 jobs:
-
   lint-python:
     runs-on: ubuntu-latest
     steps:
@@ -48,7 +47,7 @@ jobs:
 
       - name: Build Docker Image with Version Tag
         run: |
-          docker build -t ${{ secrets.DOCKER_NAME }}/data-processor:${{ env.tag }} .
+          docker build -f airflow/Dockerfile -t ${{ secrets.DOCKER_NAME }}/data-processor:${{ env.tag }} .
           docker tag ${{ secrets.DOCKER_NAME }}/data-processor:${{ env.tag }} ${{ secrets.DOCKER_NAME }}/data-processor:latest
 
       - name: Push Docker Image to Docker Hub
