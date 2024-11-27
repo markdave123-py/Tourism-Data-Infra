@@ -24,7 +24,7 @@ This project automates the extraction, transformation, and loading (ETL) of data
 
 ## Architecture
 
-![Architecture Diagram](Travel-Agency-Architecture.png)
+![Architecture Diagram](Travel-Agency-Architecture.jpeg)
 
 ### Components
 
