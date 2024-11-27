@@ -1,7 +1,7 @@
-
 # Data Processing and Transformation Pipeline
 
 ## Table of Contents
+
 1. [Introduction](#introduction)
 2. [Architecture](#architecture)
 3. [Tools and Technologies](#tools-and-technologies)
@@ -13,7 +13,9 @@
 ---
 
 ## Introduction
+
 This project automates the extraction, transformation, and loading (ETL) of data using a robust pipeline built with Terraform, Airflow, DBT, and Docker. The pipeline orchestrates data workflows to:
+
 - Extract raw data from APIs.
 - Transform the data into Facts and Dimensions using DBT.
 - Store the data into RDS for further analytics.
@@ -21,9 +23,11 @@ This project automates the extraction, transformation, and loading (ETL) of data
 ---
 
 ## Architecture
-![Architecture Diagram](arctitectural-diagram.png)
+
+![Architecture Diagram](Travel-Agency-Architecture.png)
 
 ### Components
+
 - **Data Ingestion**: Extract raw data from APIs and upload it to S3.
 - **Storage**: Use S3 for raw storage and RDS for structured data.
 - **Orchestration**: Airflow manages pipeline execution via DAGs.
@@ -34,6 +38,7 @@ This project automates the extraction, transformation, and loading (ETL) of data
 ---
 
 ## Tools and Technologies
+
 - **Terraform**: Infrastructure as Code for scalable provisioning.
 - **Airflow**: Orchestrates ETL workflows using directed acyclic graphs (DAGs).
 - **DBT**: Simplifies SQL transformations for modeling data.
@@ -46,17 +51,21 @@ This project automates the extraction, transformation, and loading (ETL) of data
 ## Setup and Usage
 
 ### Pre-requisites
+
 1. Install Docker, Terraform, and AWS CLI.
 2. Set up AWS credentials for Terraform and Airflow.
 
 ### Steps
+
 1. **Clone the Repository**:
+
    ```bash
    git clone <repo-url>
    cd Mile-stone-project
    ```
 
 2. **Provision Infrastructure**:
+
    ```bash
    cd infrastructure/
    terraform init
@@ -64,12 +73,14 @@ This project automates the extraction, transformation, and loading (ETL) of data
    ```
 
 3. **Run Airflow**:
+
    ```bash
    cd airflow/
    docker-compose up -d
    ```
 
 4. **Trigger Airflow DAGs**:
+
    - Use the Airflow UI to trigger DAGs for extraction, transformation, and loading.
 
 5. **Monitor CI/CD**:
@@ -80,20 +91,28 @@ This project automates the extraction, transformation, and loading (ETL) of data
 ## CI/CD Pipeline
 
 ### Continuous Integration (CI)
+
 1. Lint Python code using `flake8`.
 2. Ensures adherence to PEP 8 standards.
 
 ### Continuous Deployment (CD)
+
 1. Builds a Docker image for data processing.
 2. Pushes the Docker image to Docker Hub.
 
 ### Configuration
+
 - `.github/workflows/ci_cd.yml` automates the pipeline.
 - CI/CD workflow triggers on every push to the `main` branch.
 
 ---
 
+## Dags
+
+![Airflow-Dags Diagram](Dags.png)
+
 ## Directory Structure
+
 ```
 Mile-stone-project/
 ├── airflow/
@@ -126,9 +145,14 @@ Mile-stone-project/
 │   │   ├── ci_cd.yml
 ```
 
+## Tableau Dashboard
+
+![Tableau Dashboard Diagram](Tableau-dashboard.png)
+
 ---
 
 ## Future Work
+
 - Add real-time monitoring to Airflow and DBT workflows.
 - Expand pipeline to support additional data sources.
 - Integrate data quality checks and alerts.
@@ -136,4 +160,5 @@ Mile-stone-project/
 ---
 
 ## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
